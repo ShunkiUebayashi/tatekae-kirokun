@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}Billing{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .invoice-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .invoice-block {
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+            padding: 20px;
+            width: 250px;
+            box-sizing: border-box;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .invoice-block p {
+            margin: 0 0 10px;
+            padding: 5px 0;
+        }
+
+        .invoice-block button {
+            background-color: #4682B4;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .invoice-block button:hover {
+            background-color: #5A9BD5;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            flex: 0 0 100px;
+            margin-right: 10px;
+            text-align: right;
+        }
+
+        .form-group .form-control {
+            flex: 1;
+        }
+
+        #description-label {
+            align-self: flex-start;
+            margin-top: 8px;
+        }
+
+        #description {
+            flex: 1;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'invoice_list' %}">Tatekae-kun</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

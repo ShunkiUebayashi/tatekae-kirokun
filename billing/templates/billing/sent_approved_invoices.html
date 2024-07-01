@@ -1,0 +1,18 @@
+{% extends 'billing/base.html' %}
+
+{% block title %}Sent Pending Tatekaes{% endblock %}
+
+{% block content %}
+<h2>Sent Approved Tatekaes</h2>
+<div class="invoice-list">
+    {% for invoice in invoices %}
+    <div class="invoice-block">
+        <p>Receiver: {{ invoice.receiver.username }}</p>
+        <p>金額: {{ invoice.amount }}</p>
+        <p>Description: {{ invoice.description }}</p>
+        <p>Date: {{ invoice.date_created }}</p>
+    </div>
+    {% endfor %}
+</div>
+<a href="{% url 'invoice_list' %}" class="btn btn-primary">Back to Tatekae List</a>
+{% endblock %}

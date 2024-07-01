@@ -1,0 +1,19 @@
+{% extends 'billing/base.html' %}
+
+{% block title %}Tatekae List{% endblock %}
+
+{% block content %}
+<h2>Tatekae List</h2>
+<ul class="list-group">
+    <li class="list-group-item"><a href="{% url 'sent_pending_invoices' %}">Sent Pending Tatekaes</a></li>
+    <li class="list-group-item"><a href="{% url 'sent_approved_invoices' %}">Sent Approved Tatekaes</a></li>
+    <li class="list-group-item"><a href="{% url 'received_pending_invoices' %}">Received Pending Tatekaes</a></li>
+    <li class="list-group-item"><a href="{% url 'received_approved_invoices' %}">Received Approved Tatekaes</a></li>
+</ul>
+
+<a href="{% url 'create_invoice' %}" class="btn btn-primary">Create New Tatekae</a>
+
+</body>
+{% endblock %}
+
+</html>

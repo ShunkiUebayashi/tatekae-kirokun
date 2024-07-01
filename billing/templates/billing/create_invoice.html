@@ -1,0 +1,27 @@
+{% extends 'billing/base.html' %}
+
+{% block title %}Create Tatekae{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h1 class="text-center">Create Tatekae</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.receiver.label_tag }}
+                {{ form.receiver }}
+            </div>
+            <div class="form-group">
+                {{ form.amount.label_tag }}
+                {{ form.amount }}
+            </div>
+            <div class="form-group">
+                <label id="description-label" for="id_description">{{ form.description.label_tag }}</label>
+                {{ form.description }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.invoice-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.invoice-block {
+    background: linear-gradient(135deg, #87CEEB, #4682B4);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 20px;
+    width: 250px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.invoice-block p {
+    margin: 0 0 10px;
+    padding: 5px 0;
+}
+
+.invoice-block button {
+    background-color: #4682B4;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.invoice-block button:hover {
+    background-color: #5A9BD5;
+}
+
+a {
+    color: #4682B4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

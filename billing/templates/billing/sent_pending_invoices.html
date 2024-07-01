@@ -1,0 +1,22 @@
+{% extends 'billing/base.html' %}
+
+{% block title %}Sent Pending Tatekaes{% endblock %}
+
+{% block content %}
+<h2>Sent Pending Tatekaes</h2>
+<div class="invoice-list d-flex flex-wrap">
+    {% for invoice in invoices %}
+    <div class="invoice-block">
+        <p><strong>Receiver:</strong> {{ invoice.receiver.username }}</p>
+        <p><strong>金額:</strong> {{ invoice.amount }}</p>
+        <p><strong>Description:</strong> {{ invoice.description }}</p>
+        <p><strong>Date:</strong> {{ invoice.date_created }}</p>
+        <form method="post" action="{% url 'approve_invoice' invoice.pk %}">
+            {% csrf_token %}
+            <button type="submit">決済済みにする</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+<a href="{% url 'invoice_list' %}" class="btn btn-primary">Back to Invoice List</a>
+{% endblock %}
