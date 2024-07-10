@@ -10,7 +10,7 @@
     <p>Are you sure you want to approve the following invoice?</p>
     <p><strong>From:</strong> {{ invoice.sender.username }}</p>
     <p><strong>To:</strong> {{ invoice.receiver.username }}</p>
-    <p><strong>Amount:</strong> {{ invoice.amount }}</p>
+    <p><strong>金額:</strong> {{ invoice.amount }}</p>
     <p><strong>Description:</strong> {{ invoice.description }}</p>
     <form method="post">
         {% csrf_token %}
